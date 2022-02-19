@@ -1,0 +1,4 @@
+%h1.font-bold.text-6xl.text-blue-500.mb-10= @recipe.title
+%ul.list-none.text-2xl
+  - @recipe.ingredients.each do |i|
+    %li.mb-3= i.name

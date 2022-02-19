@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_19_154447) do
     t.string "cuisine"
     t.integer "cook_time"
     t.integer "prep_time"
+    t.text "ingredients_fuzzy"
     t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

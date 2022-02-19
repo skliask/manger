@@ -74,3 +74,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'haml'
+gem 'pg_search'
+gem 'kaminari'

@@ -1,0 +1,7 @@
+.flex
+  .m-auto
+    %h1.font-bold.text-6xl.text-blue-500 Let's start cooking 🔪👨‍🍳️⏲️
+    %h2.font-bold.mb-10  Insert the ingrediends you want to use
+    = form_for :recipe, url: results_recipes_path, method: :get do |f|
+      = f.text_field :ingredients, class: "mb-10", input_html: {:autocomplete => "off", :placeholder => "How cool is this?", :value => "awesome,neat"}
+      = f.submit "Search", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

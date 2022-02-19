@@ -8,6 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.string :cuisine
       t.integer :cook_time
       t.integer :prep_time
+      t.text :ingredients_fuzzy
       t.float :rating
 
       t.timestamps

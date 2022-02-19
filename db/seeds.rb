@@ -20,9 +20,10 @@ jsondata.each do |r|
     recipe.category = r["category"]
     recipe.author = r["author"]
     recipe.image_url = r["image_url"]
+    recipe.ingredients_fuzzy = r["ingredients"].join(",")
   end
 
   r["ingredients"].each do |i|
-    recipe.ingredients.where(name: i["name"]).first_or_create
+    recipe.ingredients.where(name: i).first_or_create
   end
 end
