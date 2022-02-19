@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'json'
+
+jsonfile = File.open "#{Rails.root}/recipes-english.json"
+jsondata = JSON.load jsonfile
+
+jsondata.each do |r|
+  recipe = Recipe.where(title: r[:title]).first_or_create do |recipe|
+    recipe.title = r["title"]
+    recipe.cook_time = r["cook_time"]
+    recipe.prep_time = r["prep_time"]
+    recipe.rating = r["ratings"]
+    recipe.cuisine = r["cuisine"]
+    recipe.category = r["category"]
+    recipe.author = r["author"]
+    recipe.image_url = r["image_url"]
+  end
+
+  r["ingredients"].each do |i|
+    recipe.ingredients.where(name: i["name"]).first_or_create
+  end
+end
